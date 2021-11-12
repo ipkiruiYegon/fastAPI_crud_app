@@ -4,9 +4,7 @@ Simple user authentication API with Fast API and Microsoft SQL Server 2014
 
 # Features
 
-- Full Docker integration (Docker based).
-- Docker Swarm Mode deployment.
-- Docker Compose integration and optimization for local development.
+- Simple Dockerfile.
 - Production ready Python web server using Uvicorn and Gunicorn.
 
 * Python FastAPI backend:
