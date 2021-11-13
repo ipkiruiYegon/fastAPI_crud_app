@@ -5,7 +5,7 @@ Simple user authentication API with Fast API and Microsoft SQL Server
 # Features
 
 - Simple Dockerfile.
-- Production ready Python web server using Uvicorn and Gunicorn.
+- Python web server using Uvicorn.
 
 * Python FastAPI backend:
 
