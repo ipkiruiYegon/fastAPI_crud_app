@@ -1,6 +1,6 @@
 # fastAPI_crud_app
 
-Simple user authentication API with Fast API and Microsoft SQL Server
+Simple user authentication API with Fast API and Postgres SQL Server
 
 # Features
 
