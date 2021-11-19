@@ -18,3 +18,5 @@ Simple user authentication API with Fast API and Postgres SQL Server
   - Standards-based: Based on (and fully compatible with) the open standards for APIs: OpenAPI and JSON Schema.
 
 * CORS (Cross Origin Resource Sharing).
+* JWT token.
+* PostgreSQL
