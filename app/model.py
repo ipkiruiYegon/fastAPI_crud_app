@@ -12,3 +12,4 @@ class User(Base):
     password = Column(String)
     is_active = Column(Boolean, default=True)
     last_login=Column(String,nullable=true,default='')
+    token=Column(String,nullable=true,default='')
