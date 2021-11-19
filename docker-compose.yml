@@ -1,26 +1,27 @@
-version: "3.8"
+version: "3.5"
 
 services:
-  authwebapp:
+  web:
     build: .
+    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; uvicorn app.main:app --host 0.0.0.0 --port 8080'
     volumes:
       - .:/app
     ports:
       - "8008:8080"
-    environment:
-      - ConnectionString=Data Source=mssql;Initial Catalog=myapp;User Id=sa;Password=sql.12354?;Pooling=False;Max Pool Size=200;MultipleActiveResultSets=True
+    env_file:
+      - database.url.env
 
     depends_on:
-      - mssql
-  mssql:
-    container_name: mssql
-    image: mcr.microsoft.com/mssql/server:2019-latest
+      - db
+  db:
+    container_name: db
+    image: postgres:13-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
     ports:
-      - "1434:1433"
-    environment:
-      SA_PASSWORD: "sql.12354?"
-      ACCEPT_EULA: "Y"
-      MSSQL_PID: Developer
+      - 5432:5432
+    env_file:
+      - database.env
 
 volumes:
-  sql_data:
+  postgres_data:
