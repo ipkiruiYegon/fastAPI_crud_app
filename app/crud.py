@@ -4,9 +4,9 @@ from passlib.context import CryptContext
 from . import model, schemas
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
 def get_user(db: Session, user_id: int):
     return db.query(model.User).filter(model.User.id == user_id).first()
-
 
 def get_user_by_email(db: Session, email: str):
     return db.query(model.User).filter(model.User.email == email).first()
@@ -26,3 +26,5 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
